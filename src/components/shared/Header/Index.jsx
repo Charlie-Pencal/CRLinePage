@@ -9,9 +9,9 @@ export const Header = () => {
   return (
     <S.StyleHeader className="content">
 
-      <div className="Logo">
-        <h1><img src={CrlineIcon} alt="" /></h1>
-      </div>
+      <div className="divLogo">
+        <h1><img className="logo" src={CrlineIcon} alt="" /></h1>
+        </div>
 
 
       <nav className="navBar">

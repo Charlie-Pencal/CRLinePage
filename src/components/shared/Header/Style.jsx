@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const StyleHeader = styled.header`
- display: flex;
- background: #03273B;
- width: 100%;
- height: 100px;
- align-items: center;
- flex-shrink: 0;
- gap: 300px;
+  display: flex;
+  background: #03273B;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 300px;
  
  
 .divAcc-cart{
@@ -23,6 +23,23 @@ export const StyleHeader = styled.header`
   
 }
 
+.divLogo{
+  display: flex;
+  width: 95px;
+  height: 92px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+}
+
+.logo{
+  
+  width: 95px;
+  height: 92px;
+  flex-shrink: 0;
+}
+
 .navBar{
   display: flex;
   align-items: center;
@@ -32,20 +49,20 @@ export const StyleHeader = styled.header`
 }
  
   .lista_links {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    gap: 180px;
-    list-style-type: none;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 180px;
+  list-style-type: none;
   }
   
   .link {
-    color: #FEFEFE;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
+  color: #FEFEFE;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
   }
   
   .link:hover {
