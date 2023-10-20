@@ -4,7 +4,7 @@ import { tema } from './style/tema'
 import Button from './components/common/Button';
 import Input from './components/common/Input/Index';
 import Cards from './components/common/Cards';
-import { Header } from './components/shared/Footer/Header/Index';
+import { Header } from './components/shared/Header/Index';
 
 
 

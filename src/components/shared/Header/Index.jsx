@@ -3,7 +3,7 @@ import * as S from "./Style"
 import Search from "/public/search.svg"
 import Cart from "/public/cart.svg"
 import Account from "/public/account.svg"
-import CrlineIcon from "/public/CrlineHeader.svg"
+import CrlineIcon from "/public/logo.svg"
 
 export const Header = () => {
   return (
