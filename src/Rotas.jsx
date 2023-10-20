@@ -4,6 +4,7 @@ import { tema } from './style/tema'
 import Button from './components/common/Button';
 import Input from './components/common/Input/Index';
 import Cards from './components/common/Cards';
+import { Header } from './components/shared/Header/Index';
 
 
 
@@ -11,10 +12,12 @@ const Rotas = () => {
     return (
         <ThemeProvider theme={tema} >
             <GlobalStyle/>
-            <Cards BookName={"Livro"} description={"livrinho"} price={"R$47,00"} discount={"65,00"} display={"none"}/>
             
-
+            
+            <Header/>
         </ThemeProvider>
+
+        
     );
 }
 
