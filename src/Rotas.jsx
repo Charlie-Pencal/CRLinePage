@@ -1,14 +1,15 @@
 import { GlobalStyle } from './style/GlobalStyle'
 import { ThemeProvider } from 'styled-components'
 import { tema } from './style/tema'
+import Footer from './components/shared/Footer/Index';
 
 
 const Rotas = () => {
     return (
         <ThemeProvider theme={tema}>
             <GlobalStyle />
-            <h1>Hello world!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, soluta suscipit quo pariatur eaque iste ipsa cumque eos repellat modi, quos qui at autem ad distinctio voluptas laudantium similique nesciunt.</p>
+            
+            <Footer />
         </ThemeProvider>
     );
 }
