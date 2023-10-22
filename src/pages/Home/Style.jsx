@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HomeBanner from "../../../assets/BannerHome.png"
+import HomeBanner from "/BannerHome.png"
 export const SectionStyled = styled.section`
 display: flex;
 justify-content: right;
@@ -129,8 +129,8 @@ img{
   height: 500px;
   
 &:hover{
-  transform: scale(1.1);
-  transition: 0.5s;}
+  border: inset #FFB27D;
+  transition: 0.1s;}
 
 }
 

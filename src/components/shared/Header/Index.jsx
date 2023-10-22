@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./Style"
-import Search from "../../../assets/search.svg"
-import Cart from "../../../assets/cart.svg"
-import Account from "../../../assets/account.svg"
-import CrlineIcon from "../../../assets/logo.svg"
+import Search from "/search.svg"
+import Cart from "/cart.svg"
+import Account from "/account.svg"
+import CrlineIcon from "/logo.svg"
 
 export const Header = () => {
   return (

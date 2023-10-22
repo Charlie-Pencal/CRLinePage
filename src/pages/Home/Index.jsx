@@ -1,12 +1,12 @@
 import React from 'react'
-import { Header } from '../../shared/Header/Index'
+import { Header } from '../../components/shared/Header/Index'
 import * as S from "./Style"
-import Button from '../../common/Button'
-import Sketchbook from "../../../assets/Sketchbooks.jpg"
-import Grimorio from "../../../assets/grimorio.jpg"
-import Tematico from "../../../assets/tematicos.jpg"
-import Footer from '../../shared/Footer/Index'
-import { tema } from '../../../style/tema'
+import Button from '../../components/common/Button'
+import Sketchbook from "/product.jpg"
+import Grimorio from "/product.jpg"
+import Tematico from "/product.jpg"
+import Footer from '../../components/shared/Footer/Index'
+import { tema } from '../../style/tema'
 const Home = () => {
     return (
         <>
@@ -17,7 +17,7 @@ const Home = () => {
                     <h1 className='text1'>Conheça nossa nova linha de Midoris</h1>
                     <h2 className='text2'>Troque os miolos sempre que quiser e precisar.</h2>
                     <div className='btnDiv'>
-                        <Button text={"Conheça já"} background={"#FFB27D"} padding={"25px 72px"} font={"Red Hat mono"} fontSize={"16px"} textTransform={"uppercase"} fontWeight={"700"} fontStyle={"normal"} />
+                        <Button variante={"quarto"} texto={"Conheça já"}/>
                     </div>
                 </div>
             </S.SectionStyled>
