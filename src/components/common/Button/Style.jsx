@@ -8,6 +8,14 @@ export const Buttonzin = styled.button`
   width: ${(props)=>props.width};
   background: ${(props) => props.background};
   border-radius: ${(props)=> props.radius};
+  padding: ${(props)=>props.padding};
+  font-family: ${(font)=>font};
+  font-weight: ${(fontWeight)=>fontWeight};
+  text-transform: ${(textTransform)=>textTransform};
+  font-style: ${(fontStyle)=>fontStyle};
+  font-size: ${(fontSize)=>fontSize};
+  
+  
   border: none;
  &:hover{
    
