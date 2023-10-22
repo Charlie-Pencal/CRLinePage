@@ -3,13 +3,13 @@ import { ThemeProvider } from "styled-components";
 import { tema } from "./style/tema";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home/Index';
-// import Shop from './pages/Shop/Index';
-// import Produto from './pages/Produto/Index';
+
+import Shop from './pages/Shop/Index';
+import Produto from './pages/Produto/Index';
 import Login from './pages/Login/Index';
-// import Cadastro from './pages/Cadastro/Index';
-// import Carrinho from './pages/Carrinho/Index';
+import Cadastro from './pages/Cadastro/Index';
+import Carrinho from './pages/Carrinho/Index';
 import PerfilUsuario from './pages/PerfilUsuario/Index';
-import Pedidos from './pages/Pedidos/Index';
 
 const Rotas = () => {
     return (
@@ -22,21 +22,24 @@ const Rotas = () => {
                     {/* rota para a Home */}
                     <Route path="/" element={<Home />} />
                     {/* rota para Catalogo */}
-                    {/* <Route path="/shop" element={<Shop />} /> */}
+
+                    <Route path="/shop" element={<Shop />} />
 
                 {/* LETICIA */}
                     {/* rota para Produto */}
-                    {/* <Route path="/produto" element={<Produto />} /> */}
+                    <Route path="/produto" element={<Produto />} />
 
                 {/* CHARLIE */}
                     {/* rota para Login */}
                     <Route path="/login" element={<Login />} />
                     {/* rota para Cadastro */}
-                    {/* <Route path="/cadastro" element={<Cadastro />} /> */}
+
+                    <Route path="/cadastro" element={<Cadastro />} />
 
                 {/* EMERSON */}
                     {/* rota para Carrinho */}
-                    {/* <Route path="/carrinho" element={<Carrinho />} /> */}
+                    <Route path="/carrinho" element={<Carrinho />} />
+
                     {/* rota para Checkout */}
                     {/* <Route path="/checkout" element={<></>} /> */}
 
@@ -44,7 +47,9 @@ const Rotas = () => {
                     {/* rota para Perfil */}
                     <Route path="/perfil" element={<PerfilUsuario />} />
                     {/* rota para Pedidos */}
-                    <Route path="/pedidos" element={<Pedidos />} />
+
+                    {/* <Route path="/pedidos" element={<></>} /> */}
+
 
                 </Routes>
             </ThemeProvider>
