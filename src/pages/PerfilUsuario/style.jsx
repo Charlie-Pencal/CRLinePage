@@ -1,72 +1,86 @@
 import styled from "styled-components";
 
 export const StyledPerfilUsuario = styled.section`
-
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    .containerGeral{
-        margin: 2rem 4rem;
-        /* padding: 2rem 3rem; */
         display: flex;
-        flex-grow: 1;
+        justify-content: center;
+        border-radius: 8px;
         background-color: ${(props) => props.theme.marrom};
-        
-        > .containerNav{
-            /* border: solid blue; */
+        width: 1000px;
+        height: 500px;
+        padding: 3rem 4rem;
+        margin: 4rem auto 10rem auto;
+
+        .containerNav {
             display: flex;
             flex-direction: column;
             padding: 1rem 2rem;
             gap: 2rem;
-            
-            .containerImg{
-                /* border: solid green; */
+
+            .containerImg {
                 width: 10rem;
                 height: 10rem;
                 border-radius: 50%;
                 box-shadow: 5px 6px 4px 0px rgba(0, 0, 0, 0.25);
             }
-            nav{
-                /* border: solid fuchsia; */
+            nav {
                 display: flex;
                 flex-direction: column;
             }
-            .itemNav{
+            .itemNav {
                 border-left: solid transparent;
-                padding: 1rem .5rem;
+                padding: 1rem 0.5rem;
             }
-            .itemNav:hover{
+            .itemNav:hover {
                 border-left: solid ${(props) => props.theme.areia};
                 box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.1);
             }
         }
-        
-        .containerInfos{
-            /* border: solid fuchsia; */
+
+        .containerInfos {
             padding: 0 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            
-            > h2{
-                /* border: solid blue; */
+
+            h2 {
                 padding: 1rem;
-                
-                > span{
+
+                span {
                     text-decoration-line: line-through;
                     font-weight: 300;
                     font-size: small;
                     padding-left: 1rem;
                 }
             }
+        }
 
-            .conteudoInfos{
-                border: solid red;
+        .formularioDadosPessoais {
+            div {
                 display: flex;
-                flex-grow: 1;
+                flex-direction: row;
+                padding-top: 1rem;
+
+                label {
+                    width: 4rem;
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    padding: 0 0.5rem;
+                }
+                input {
+                    width: 30rem;
+                    color: ${(props) => props.theme.preto};
+                    height: 3rem;
+                    margin-left: 1rem;
+                    padding-left: 1rem;
+                    border-radius: 8px;
+                }
+            }
+            button {
+                background-color: ${(props) => props.theme.areia};
+                padding: 0.8rem 2rem;
+                margin-top: 2rem;
+                border-radius: 8px;
+                border: none;
+                font-weight: 500;
             }
         }
-    }
-
+    /* } */
 `;
