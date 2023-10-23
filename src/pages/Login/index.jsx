@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledLogin } from './style'
-import { Buttonzin } from '../../components/common/Button/Style'
 import { Input } from '../../components/common/Input/Style'
+import Button from '../../components/common/Button'
 
 const Login = () => {
   return (
@@ -31,12 +31,7 @@ const Login = () => {
                     padding='10px'/>
                 </div>
                 <div className='divSubmit'>
-                  <Buttonzin
-                  width='170px'
-                  height='42px'
-                  background='#ffb27d'
-                  radius='8px'
-                  >Entrar</Buttonzin>
+                <Button variante={"primeiro"} texto={"Entrar"}/>
                   <a href="" className='aLogin'>Esqueceu a senha?</a>
                 </div>
                 <p>Não tem cadastro? <a href="" className='aLogin'>Clique aqui.</a></p>
