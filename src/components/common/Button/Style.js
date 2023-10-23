@@ -51,3 +51,31 @@ export const QuartoButton = styled(StyledButton)`
     box-shadow: inset 0 0 100px 100px rgba(150, 50, 50, 0.3);
   }
 `;
+
+
+// Criado por Letícia
+export const Container = styled.div`
+  button {
+    height: 50px;
+    color: white;
+    background-color: #03273B;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    transition: .5s ease-in-out;
+  
+  
+    &:hover {
+      color: #03273B;
+      background-color: white;
+      border: 1px solid #03273B;
+    }
+  
+  }
+
+  
+
+
+`

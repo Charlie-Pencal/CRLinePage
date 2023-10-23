@@ -1,5 +1,7 @@
-import React from 'react'
+// import React from 'react'
+
 import * as S from "./Style"
+
 const Button = ({texto, variante, onClick, onSubmit}) => {
   return (
     <>
