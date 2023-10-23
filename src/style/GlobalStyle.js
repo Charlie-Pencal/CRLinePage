@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Red Hat Display', sans-serif;
         color: ${(props) => props.theme.branco};
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;800&display=swap');
     }
     html, :root {
         width: 100%;
