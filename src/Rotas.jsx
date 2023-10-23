@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { tema } from "./style/tema";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home/Index';
+
 import Shop from './pages/Shop/Index';
 import Produto from './pages/Produto/Index';
 import Login from './pages/Login/Index';
@@ -21,6 +22,7 @@ const Rotas = () => {
                     {/* rota para a Home */}
                     <Route path="/" element={<Home />} />
                     {/* rota para Catalogo */}
+
                     <Route path="/shop" element={<Shop />} />
 
                 {/* LETICIA */}
@@ -31,11 +33,13 @@ const Rotas = () => {
                     {/* rota para Login */}
                     <Route path="/login" element={<Login />} />
                     {/* rota para Cadastro */}
+
                     <Route path="/cadastro" element={<Cadastro />} />
 
                 {/* EMERSON */}
                     {/* rota para Carrinho */}
                     <Route path="/carrinho" element={<Carrinho />} />
+
                     {/* rota para Checkout */}
                     {/* <Route path="/checkout" element={<></>} /> */}
 
@@ -43,7 +47,9 @@ const Rotas = () => {
                     {/* rota para Perfil */}
                     <Route path="/perfil" element={<PerfilUsuario />} />
                     {/* rota para Pedidos */}
+
                     {/* <Route path="/pedidos" element={<></>} /> */}
+
 
                 </Routes>
             </ThemeProvider>

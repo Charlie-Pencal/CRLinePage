@@ -7,8 +7,9 @@ export const StyleHeader = styled.header`
   height: 100px;
   align-items: center;
   flex-shrink: 0;
-  gap: 300px;
  
+  justify-content: space-between;
+  padding: 0 20px;
  
 .divAcc-cart{
   display: flex;
@@ -19,7 +20,7 @@ export const StyleHeader = styled.header`
   display: contents;
   align-items: center;
   justify-content: center;
- 
+  width: 30%;
   
 }
 
@@ -30,7 +31,6 @@ export const StyleHeader = styled.header`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-
 }
 
 .logo{
@@ -43,17 +43,17 @@ export const StyleHeader = styled.header`
 .navBar{
   display: flex;
   align-items: center;
-  justify-content: center;
   width: fit-content;
-  gap:75px
+  width: 70%;
 }
  
   .lista_links {
   width: fit-content;
   display: flex;
   align-items: center;
-  gap: 180px;
   list-style-type: none;
+  width: 100%;
+  justify-content: space-between;
   }
   
   .link {
