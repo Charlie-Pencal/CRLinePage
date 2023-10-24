@@ -8,6 +8,9 @@ display: grid;
 align-items: center;
 justify-content: center;
 text-align: center;
+background-color: #fff;
+border-radius: 12px;
+
 
 
 
@@ -17,6 +20,10 @@ img{
 width: 285px;
 height: 380px;
 border-radius:10px;
+&:hover{
+    border: inset #FFB27D;
+}
+
 }
 
 .divDetails{
@@ -29,7 +36,10 @@ border-radius:10px;
     height: 145px;
     gap: 8px;
     border-radius: 8px;
+    
 }
+
+
 
 h1 {
 display: flex;

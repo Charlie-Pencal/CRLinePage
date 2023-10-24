@@ -32,20 +32,14 @@ flex-shrink: 0;
 background: #043A55;
 gap: 5px;
 
-.filterIcon{
-    img{
-      width:30px ;
-    }
-}
-
-
 p{
 
 color: #FFB27D;
 font-size: 26px;
 font-style: normal;
-font-weight: 400;
+font-weight: 700;
 line-height: normal;
+
 
 }
 
@@ -79,13 +73,6 @@ padding: 100px;
     
 }
 
-.btns{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 38px;
-    justify-content: center;
-}
 
 
 `
