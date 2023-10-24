@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from "../../../assets/Sketchbooks.jpg"
+import Product from "/product.jpg"
 import * as S from "./Style"
 const Cards = ({ display, BookName, description, price, discount}) => {
   return (

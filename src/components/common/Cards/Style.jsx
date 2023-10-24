@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-background-color: red;
+
 width: 285px;
 height: 446px;
 display: grid;
@@ -11,9 +11,12 @@ text-align: center;
 
 
 
+
+
 img{
 width: 285px;
-height: 301px;
+height: 380px;
+border-radius:10px;
 }
 
 .divDetails{
@@ -25,6 +28,7 @@ height: 301px;
     width: 285px;
     height: 145px;
     gap: 8px;
+    border-radius: 8px;
 }
 
 h1 {
