@@ -2,6 +2,7 @@ import React from 'react'
 import { StyledLogin } from './style'
 import { Input } from '../../components/common/Input/Style'
 import Button from '../../components/common/Button'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -30,7 +31,7 @@ const Login = () => {
                 <Button variante={"primeiro"} texto={"Entrar"}/>
                   <a href="" className='aLogin'>Esqueceu a senha?</a>
                 </div>
-                <p>Não tem cadastro? <a href="" className='aLogin'>Clique aqui.</a></p>
+                <p>Não tem cadastro? <Link to="/cadastro" className='aLogin'>Clique aqui.</Link></p>
             </div>
         </section>
     </StyledLogin>
