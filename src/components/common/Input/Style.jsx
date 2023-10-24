@@ -6,8 +6,9 @@ export const Input = styled.input`
   flex-shrink: 0;
   border: ${(props)=>props.border};
   border-radius: ${(props)=>props.radius};
-  background: ${(props)=>props.background};
-  padding: ${(props)=>props.padding}
+  background: ${(props)=>props.theme.branco};
+  padding: ${(props)=>props.padding};
+  color: ${(props)=>props.theme.azul};
  
 `
 

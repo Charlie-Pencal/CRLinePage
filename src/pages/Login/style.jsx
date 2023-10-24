@@ -8,7 +8,7 @@ border-radius: 8px;
 background-image: url(/BannerLogin.png);
 
 .loginSection{
-    border: solid red;
+    margin: 4rem auto 2rem auto;
     width: 100%;
     height: 100%;
 }
@@ -29,7 +29,7 @@ background-image: url(/BannerLogin.png);
     .divInput{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
     .labelLogin{
         font-family: 'Red Hat Display', sans-serif;
@@ -37,7 +37,7 @@ background-image: url(/BannerLogin.png);
     }
     .aLogin{
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         color: ${(propos) => propos.theme.areia};
     }
     .divSubmit{
