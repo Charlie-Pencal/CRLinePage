@@ -14,20 +14,18 @@ const Login = () => {
                     <Input 
                     type="text"
                     width='100%'
-                    height='30px'
-                    border='1px solid #fefffe'
+                    height='45px'
                     radius='8px'
-                    background='none'
+                    color='#03273b'
                     padding='10px'
                      />
                     <label htmlFor="password" className='labelLogin'>Senha</label>
                     <Input 
                     type="password" 
                     width='100%'
-                    height='30px'
-                    border='1px solid #fefffe'
+                    height='45px'
                     radius='8px'
-                    background='none'
+                    color='#03273b'
                     padding='10px'/>
                 </div>
                 <div className='divSubmit'>
