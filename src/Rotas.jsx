@@ -22,7 +22,7 @@ const Rotas = () => {
 
                     <Route path="/" element={<Home />} />
 
-                    <Route path="/shop" element={<Shop />} />
+                    <Route path="/shop" element={<Shop/>} />
 
                     <Route path="/produto" element={<Produto />} />
 

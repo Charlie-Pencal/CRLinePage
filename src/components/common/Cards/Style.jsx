@@ -1,19 +1,29 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-background-color: red;
+
 width: 285px;
 height: 446px;
 display: grid;
 align-items: center;
 justify-content: center;
 text-align: center;
+background-color: #fff;
+border-radius: 12px;
+
+
+
 
 
 
 img{
 width: 285px;
-height: 301px;
+height: 380px;
+border-radius:10px;
+&:hover{
+    border: inset #FFB27D;
+}
+
 }
 
 .divDetails{
@@ -25,7 +35,11 @@ height: 301px;
     width: 285px;
     height: 145px;
     gap: 8px;
+    border-radius: 8px;
+    
 }
+
+
 
 h1 {
 display: flex;
