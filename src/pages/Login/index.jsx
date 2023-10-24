@@ -16,7 +16,6 @@ const Login = () => {
                     width='100%'
                     height='45px'
                     radius='8px'
-                    color='#03273b'
                     padding='10px'
                      />
                     <label htmlFor="password" className='labelLogin'>Senha</label>
@@ -25,7 +24,6 @@ const Login = () => {
                     width='100%'
                     height='45px'
                     radius='8px'
-                    color='#03273b'
                     padding='10px'/>
                 </div>
                 <div className='divSubmit'>
