@@ -24,17 +24,17 @@ export const StyledPedidos = styled.section`
         nav {
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
         }
         .itemNav {
-            border-left: solid transparent;
+            border-left: solid 1px ${(props) => props.theme.areia};
             padding: 1rem 0.5rem;
         }
         .itemNav:hover {
-            border-left: solid ${(props) => props.theme.areia};
+            border-left: solid 1px ${(props) => props.theme.areia};
             box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.1);
         }
     }
-
     .containerInfos {
         padding: 0 2rem;
         width: 100%;
@@ -50,7 +50,6 @@ export const StyledPedidos = styled.section`
             }
         }
     }
-
     .containerPedidos {
         display: flex;
         flex-direction: column;
@@ -73,5 +72,4 @@ export const StyledPedidos = styled.section`
             }
         }
     }
-    /* } */
 `;
