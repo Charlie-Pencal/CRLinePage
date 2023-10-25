@@ -1,45 +1,59 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Header } from '../../components/shared/Header/Index'
 import * as S from "./Style"
 import Cards from '../../components/common/Cards'
-import Button from '../../components/common/Button'
-import Filter from "/filter.svg"
+// import Button from '../../components/common/Button'
+// import Filter from "/filter.svg"
 import Footer from '../../components/shared/Footer/Index'
+import axios from 'axios'
+
 const Shop = () => {
-  return (
-    <>
-      <Header />
-      <S.SectionShop>
-        <h1>Shop</h1>
-      </S.SectionShop>
-      <S.DivSeparate>
 
-        <p>Produtos</p>
+    const urlApi = "http://localhost:3000/produtos"
 
-        
-      </S.DivSeparate>
-      <S.ProductSection>
-        <div className='firstColumn'>
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
+    const [produtos, setProdutos] = useState([])
 
-        </div>
+    const getProdutos = async() => {
+        try {
+            const resposta = await axios.get(urlApi)
+            const data = resposta.data
+            setProdutos(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-        <div className='seccondColumn'>
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-          <Cards BookName={"SketchBook Classico"} description={"Sketchbook"} price={"R$47,00"} discount={"R$65,00"} />
-        </div>
+    useEffect(() => {
+        getProdutos()
+    }, [])
 
-      </S.ProductSection>
-      <Footer />
+    return (
+        <>
+        <Header />
+        <S.SectionShop>
+            <h1>Shop</h1>
+        </S.SectionShop>
+        <S.DivSeparate>
+
+            <p>Produtos</p>
+
+            
+        </S.DivSeparate>
+        <S.ProductSection>
+
+            {produtos.map((produto) => (
+                <div key={produto._id}>
+                    <Cards data={produto} />
+                </div>
+            ))}
+
+        </S.ProductSection>
+        <Footer />
 
 
-    </>
-  )
+        </>
+    )
 }
 
 export default Shop

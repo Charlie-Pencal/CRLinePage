@@ -10,6 +10,7 @@ justify-content: center;
 text-align: center;
 background-color: #fff;
 border-radius: 12px;
+margin: 50px 0;
 
 
 
