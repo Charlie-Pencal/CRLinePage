@@ -45,4 +45,8 @@ export const StyledCadastro = styled.section`
         flex-direction: column;
         gap: 20px;
     }
+    .erro{
+        color: red;
+        font-size: 12px;
+    }
 `
