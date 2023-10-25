@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledProduto = styled.section`
     .barraTop {
-        background-color: ${(props) => props.theme.marrom};
+        background-color: #043A55;
         height: 100px;
     }
 
