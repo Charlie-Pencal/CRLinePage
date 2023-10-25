@@ -1,23 +1,27 @@
 import React from 'react'
 import Product from "/product.jpg"
 import * as S from "./Style"
-const Cards = ({ display, BookName, description, price, discount}) => {
+import { Link } from "react-router-dom";
+const Cards = ({ display, data }) => {
   return (
     <S.Card display={display}>
-      <img src={Product} alt="" />
-      <div className='divDetails'>
+      <Link to={`/produto/${data._id}`} className="link">
+        <img src={Product} alt="" />
+        <div className='divDetails'>
 
-        <h1>{BookName}</h1>
-        <h2>{description}</h2>
+          <h1>{data.nome}</h1>
+          <h2>{data.descricao}</h2>
 
-        <div className='divPrice'>
+          <div className='divPrice'>
 
-          <p className='principalPrice'>{price}</p> 
-          <p className='discount'>{discount}</p>
+            <p className='principalPrice'>{data.preco}</p>
+            <p className='discount'>{data.desconto}</p>
+          </div>
+
+
         </div>
+      </Link>
 
-
-      </div>
     </S.Card>
   )
 }
