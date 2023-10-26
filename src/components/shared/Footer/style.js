@@ -13,7 +13,7 @@ export const StyledFooter = styled.footer`
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        background-color:${(props) => props.theme.azul};
+        background-color:${(props) => props.theme.azulClaro};
         color: ${(props) => props.theme.branco};
     
     }
@@ -41,7 +41,7 @@ export const StyledFooter = styled.footer`
     
     .footer-direitos{
     padding-left: 40px;
-    background-color:${(props) => props.theme.azul};
+    background-color:${(props) => props.theme.azulClaro};
     width: 100%;
     height: 55px;
     border-top: 1px solid ${(props) => props.theme.branco};
