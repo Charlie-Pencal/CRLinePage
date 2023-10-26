@@ -32,14 +32,12 @@ const Contato = () => {
                         <Input
                             width={"100%"}
                             height={"45px"}
-                            border={"none"}
                             radius={"8px"}
                         />
                         <label className="descricaoLabel">Email</label>
                         <Input
                             width={"100%"}
                             height={"45px"}
-                            border={"none"}
                             radius={"8px"}
                         />
                         <label className="descricaoLabel">Sua Mensagem</label>
