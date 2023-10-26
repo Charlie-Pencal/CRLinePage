@@ -15,7 +15,6 @@ const Cards = ({ display, data }) => {
           <div className='divPrice'>
 
             <p className='principalPrice'>{data.preco}</p>
-            <p className='discount'>{data.desconto}</p>
           </div>
 
 
