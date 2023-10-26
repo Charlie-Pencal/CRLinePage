@@ -10,7 +10,8 @@ const Cadastro = () => {
   const {register, handleSubmit, formState: {errors},watch} = useForm();
   
   const onSubmit = (data) => {
-    alert(data)
+    alert('Cadastro realizado com sucesso!')
+    window.location.href = '/login'
     
   }
   const watchSenha = watch("senha")
