@@ -5,14 +5,31 @@ import Button from '../../components/common/Button'
 import {useForm} from 'react-hook-form'
 import validator from 'validator';
 import {Header} from '../../components/shared/Header/Index'
+import axios from "axios";
 
 const Cadastro = () => {
 
+  const urlApi = `http://localhost:3000/clientes`;
+
   const {register, handleSubmit, formState: {errors},watch} = useForm();
   
-  const onSubmit = (data) => {
-    alert('Cadastro realizado com sucesso!')
-    window.location.href = '/login'
+  const onSubmit = async (data) => {
+    console.log("aki ", data);
+    try {
+      const dadosCadastro = {
+        nome: data.nome,
+        sobrenome: data.sobrenome,
+        email: data.email,
+        senha: data.senha
+      };
+      console.log(dadosCadastro);
+      const resposta = await axios.post(urlApi, dadosCadastro);
+      console.log("foi", resposta.data);
+      alert("Sucesso no Cadastro")
+      window.location.href = '/login'
+    } catch (error) {
+        console.log(error);
+    }
     
   }
   const watchSenha = watch("senha")
