@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
 export const StyledPerfilUsuario = styled.section`
+    background-color: #043A55;
     display: flex;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: ${(props) => props.theme.marrom};
-    width: 1000px;
-    height: 500px;
-    padding: 3rem 4rem;
-    margin: 4rem auto 10rem auto;
 
+    .containerGeral{
+        display: flex;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: ${(props) => props.theme.azul};
+        width: 1000px;
+        height: 500px;
+        padding: 3rem 4rem;
+        margin: 4rem auto 10rem auto;
+
+    }
     .containerNav {
         display: flex;
         flex-direction: column;
@@ -37,6 +42,8 @@ export const StyledPerfilUsuario = styled.section`
         }
     }
     .containerInfos {
+        display: flex;
+        flex-direction: column;
         padding: 0 2rem;
         width: 100%;
 
@@ -51,26 +58,26 @@ export const StyledPerfilUsuario = styled.section`
             }
         }
     }
-    .formularioDadosPessoais {
+    .containerDadosPessoais {
+        padding-left: 1rem;
+        flex-grow: 1;
         div {
             display: flex;
             flex-direction: row;
             padding-top: 1rem;
+            line-height: 2rem;
 
-            label {
+            h4 {
                 width: 4rem;
                 display: flex;
                 justify-content: end;
                 align-items: center;
                 padding: 0 0.5rem;
             }
-            input {
+            p {
                 width: 30rem;
-                color: ${(props) => props.theme.preto};
-                height: 3rem;
                 margin-left: 1rem;
                 padding-left: 1rem;
-                border-radius: 8px;
             }
         }
         button {
