@@ -54,7 +54,7 @@ const Footer = () => {
                         </li>
                     </ul>
                     <div className="footer-logo">
-                        <img src="/logo.svg" alt="Logo" />
+                        <img src="/logoBranco.png" alt="Logo" />
                     </div>
                 </div>
 

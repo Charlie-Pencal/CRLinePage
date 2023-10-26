@@ -4,7 +4,7 @@ export const StyledFooter = styled.footer`
 
 .footer-container{
     height: 150px;    
-    background-color:${(props) => props.theme.branco};
+    background-color:${(props) => props.theme.azul};
     padding-top: 20px;
     
     }
@@ -13,15 +13,15 @@ export const StyledFooter = styled.footer`
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        background-color:${(props) => props.theme.branco};
-        color: ${(props) => props.theme.preto};
+        background-color:${(props) => props.theme.azul};
+        color: ${(props) => props.theme.branco};
     
     }
         
     p{
         margin-top: 20px;
         border:1px;
-        color: ${(props) => props.theme.preto};
+        color: ${(props) => props.theme.branco};
     }
     
     img{
@@ -35,15 +35,15 @@ export const StyledFooter = styled.footer`
     font-size: 16px;
     line-height: 48px;
     list-style: none;
-    color: ${(props) => props.theme.preto};
+    color: ${(props) => props.theme.branco};
         
     }
     
     .footer-direitos{
     padding-left: 40px;
-    background-color:${(props) => props.theme.branco};
+    background-color:${(props) => props.theme.azul};
     width: 100%;
     height: 55px;
-    border-top: 1px solid ${(props) => props.theme.preto};
+    border-top: 1px solid ${(props) => props.theme.branco};
         
     }`
