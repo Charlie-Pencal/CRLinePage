@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const StyledPedidos = styled.section`
+    background-color: #043A55;
     display: flex;
-    border-radius: 8px;
-    background-color: ${(props) => props.theme.marrom};
-    width: 1000px;
-    min-height: 500px;
-    padding: 3rem 4rem;
-    margin: 4rem auto 10rem auto;
+
+    .containerGeral{
+        display: flex;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: ${(props) => props.theme.azul};
+        width: 1000px;
+        min-height: 500px;
+        padding: 3rem 4rem;
+        margin: 4rem auto 10rem auto;
+    }
 
     .containerNav {
         display: flex;
