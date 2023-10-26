@@ -1,10 +1,52 @@
-import React from "react";
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import { StyledProduto } from "./style";
 import Button from "../../components/common/Button";
+import axios from 'axios'
 
 const Produto = () => {
+    const navigate = useNavigate();
+    const params = useParams()
+    
+    const urlApi = `http://localhost:3000/produtos/${params.id}`
+
+    const [produto, setProduto] = useState([])
+
+    const getProduto = async() => {
+        try {
+            const resposta = await axios.get(urlApi)
+            const data = resposta.data
+            setProduto(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getProduto()
+    }, [])
+
+    const handleAdicionarCarrinho = () => {
+        console.log("adicionado ao carrinho", params.id)
+        const carrinhoAtual = JSON.parse(localStorage.getItem('cart')) || [];
+        const novoProduto = {
+            key: params.id,
+            idProduto: params.id,
+            nome: produto.nome,
+            preco: produto.preco,
+            quantidade: 1
+        };
+        carrinhoAtual.push(novoProduto);
+        localStorage.setItem('cart', JSON.stringify(carrinhoAtual));
+    }
+    
+    const handleComprar = () => {
+        handleAdicionarCarrinho();
+        navigate('/carrinho')
+    }
+    
     return (
         <>
             <Header />
@@ -16,29 +58,27 @@ const Produto = () => {
 
                     <div className="containerImagens">
                         <div className="containerImgPequena">
-                            <img className="imgPequena" src="/product.jpg" alt="" />
-                            <img className="imgPequena" src="/product.jpg" alt="" />
-                            <img className="imgPequena" src="/product.jpg" alt="" />
-                            <img className="imgPequena" src="/product.jpg" alt="" />
+                            <img className="imgPequena" src={produto.imagensProduto && produto.imagensProduto[1]} alt="" />
+                            <img className="imgPequena" src={produto.imagensProduto && produto.imagensProduto[2]} alt="" />
                         </div>
-                        <img className="imgGrande" src="/product.jpg" alt="" />
+                        <img className="imgGrande" src={produto.imagensProduto && produto.imagensProduto[0]} alt="" />
                     </div>
 
                     <div className="containerDescrição">
-                        <h2>Nome do Livro</h2>
-                        <h3>Breve descrição</h3>
-                        <p>Caderno costurado a mão com costura exposta.</p>
-                        <p>Pauta Lisa</p>
-                        <p>100 folhas</p>
+                        <h2>{produto.nome}</h2>
+                        <h3>{produto.descricao}</h3>
+                        <p>{produto.tipoCostura}</p>
+                        <p>{produto.tamanhoCapa}</p>
+                        <p>{produto.tipoPauta}</p>
                         <p>Papel Reciclado</p>
                         <div className="botoesCategoriasProdutos">
-                            <Button variante={"segundo"} texto={"1"}/>
-                            <Button variante={"segundo"} texto={"2"}/>
-                            <Button variante={"segundo"} texto={"3"}/>
+                            <Button variante={"segundo"} texto={"A4"}/>
+                            <Button variante={"segundo"} texto={"A5"}/>
+                            <Button variante={"segundo"} texto={"A6"}/>
                         </div>
                         <div className="botoesCompras">
-                            <Button variante={"quarto"} texto={"Adicionar ao Carrinho"}/>
-                            <Button variante={"quarto"} texto={"Comprar"}/>
+                            <Button variante={"quarto"} texto={"Adicionar ao Carrinho"} onClick={handleAdicionarCarrinho}/>
+                            <Button variante={"quarto"} texto={"Comprar"} onClick={handleComprar}/>
                         </div>
                     </div>
 

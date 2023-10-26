@@ -1,49 +1,16 @@
-import React from "react";
-import Button from "../Button/Index";
+import Button from "../Button";
+import { StyledCarComponente } from "./style";
 
-
-
-  const CarComponente = ({ data, handleRemoveItem }) => {
-    const [quantidade, setQuantidade] = useState(0);
-
-    useEffect(() => {
-      const initialQuantidade = 10; // Exemplo de valor inicial
-      setQuantidade(initialQuantidade);
-    }, []);
-  
-  const handleInputChange = (event) => {
-    setQuantidade(event.target.value);
-  };
-  return (
-    <div>
-      <tr>
-        <td>
-          <div className="carrinho-produto">
-            <img className="imgtd-produto" src="/src/product.jpg" alt="" />
-            <div className="carrinho-descricao">
-              <div className="carrinho-nome">{data.nome}</div>
-            </div>
-          </div>
-        </td>
-        <td>R$ {data.preço}</td>
-        <td>
-          <div className="carrinho-quantidade">
-            <div
-              className="qtde-dois"
-              value={data.quantidade}
-              onChange={handleInputChange}
-            ></div>
-          </div>
-        </td>
-        <td>R${data.preço * data.quantidade}</td>
-        <td>
-        <Button variante={'segundo'} texto={'Lixeira'}/>
-          
-        </td>
-      </tr>
-    </div>
-  );
+const CarComponente = ({ data, handleRemoveItem }) => {
+    return (
+        <StyledCarComponente>
+            <img className="imgtd-produto" src="/product.jpg"/>
+            <h4>{data.nome}</h4>
+            <p>R$ {data.preco}</p>
+            <p>R$ {data.quantidade}</p>
+            <Button variante={"segundo"} texto={"Lixeira"} on onClick={handleRemoveItem}/>
+        </StyledCarComponente>
+    );
 };
-
 
 export default CarComponente;
