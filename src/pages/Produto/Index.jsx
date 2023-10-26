@@ -32,7 +32,10 @@ const Produto = () => {
         console.log("adicionado ao carrinho", params.id)
         const carrinhoAtual = JSON.parse(localStorage.getItem('cart')) || [];
         const novoProduto = {
+            key: params.id,
             idProduto: params.id,
+            nome: produto.nome,
+            preco: produto.preco,
             quantidade: 1
         };
         carrinhoAtual.push(novoProduto);
