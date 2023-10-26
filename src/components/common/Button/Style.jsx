@@ -12,7 +12,7 @@ export const StyledButton = styled.button`
 
 export const PrimeiroButton = styled(StyledButton)`
   background-color: ${(props) => props.theme.areia};
-  color: ${(props) => props.theme.branco};
+  color: ${(props) => props.theme.azul};
   padding: 0.5rem 2rem;
   &:hover {
     box-shadow: inset 0 0 100px 100px rgba(150, 50, 50, 0.3);

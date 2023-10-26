@@ -15,7 +15,8 @@ background-image: url(/BannerLogin.png);
 
 
     .divLogin{
-        background-color: rgb(8, 8, 8, 0.75);
+        background-color: #131313a0;
+        backdrop-filter: blur(6px);
         width: 50%;
         height: 100%;
         padding: 50px;

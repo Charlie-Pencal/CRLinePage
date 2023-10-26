@@ -3,6 +3,7 @@ import { StyledLogin } from './style'
 import { Input } from '../../components/common/Input/Style'
 import Button from '../../components/common/Button'
 import { Link } from 'react-router-dom'
+import {Header} from '../../components/shared/Header/Index'
 
 const Login = () => {
   const idCliente = "6538827f773e2f64ceac545c"
@@ -21,6 +22,8 @@ function handleSubmit(){
 }
 
   return (
+    <>
+    <Header />
     <StyledLogin>
         <section className='loginSection'>
             <div className='divLogin'>
@@ -54,6 +57,7 @@ function handleSubmit(){
             </div>
         </section>
     </StyledLogin>
+    </>
   )
 }
 

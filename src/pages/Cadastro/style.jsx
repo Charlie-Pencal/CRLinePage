@@ -11,7 +11,7 @@ export const StyledCadastro = styled.section`
     .cadastro{
         width: 700px;
         height: 635px;
-        background-color: #250e11;
+        background-color: ${(propos) => propos.theme.azulClaro};
         padding: 50px;
         border-radius: 8px;
         display: flex;

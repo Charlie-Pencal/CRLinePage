@@ -4,6 +4,7 @@ import { Input } from '../../components/common/Input/Style'
 import Button from '../../components/common/Button'
 import {useForm} from 'react-hook-form'
 import validator from 'validator';
+import {Header} from '../../components/shared/Header/Index'
 
 const Cadastro = () => {
 
@@ -17,6 +18,8 @@ const Cadastro = () => {
   const watchSenha = watch("senha")
 
   return (
+    <>
+    <Header />
     <StyledCadastro>
       <div>
         <div className="containerCadastro">
@@ -103,6 +106,7 @@ const Cadastro = () => {
         </div>
       </div>
     </StyledCadastro>
+    </>
   );
 };
 
