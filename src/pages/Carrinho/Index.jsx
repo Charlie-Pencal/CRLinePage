@@ -32,22 +32,16 @@ const Carrinho = () => {
     const urlApi = `http://localhost:3000/pedidos`;
 
     const handleCompra = async () => {
-        console.log("click");
-        // for (let item of carrinho) {
-        //     delete item.key;
-        // }
-        
         try {
-
-            console.log(carrinho);
             const data = {
                 idCliente: idCliente,
                 produtosPedido: carrinho
             };
-            console.log(data);
-
             const resposta = await axios.post(urlApi, data);
             console.log("foi", resposta.data);
+            alert("Pedido Concluido!")
+            localStorage.setItem('cart', JSON.stringify([]));
+            getCarrinho();
         } catch (error) {
             console.log(error);
         }

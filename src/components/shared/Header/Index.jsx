@@ -31,9 +31,9 @@ export const Header = () => {
                     </li>
                     <div className="divSerach">
                         <li>
-                            <a className={"link"}>
+                            <Link to="/perfil" className={"link"}>
                                 <img src={Search} alt="lupa pesquisa" />
-                            </a>
+                            </Link>
                         </li>
                     </div>
 

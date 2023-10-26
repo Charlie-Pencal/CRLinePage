@@ -36,6 +36,7 @@ const Produto = () => {
             idProduto: params.id,
             nome: produto.nome,
             preco: produto.preco,
+            imagensProduto: produto.imagensProduto,
             quantidade: 1
         };
         carrinhoAtual.push(novoProduto);
