@@ -5,6 +5,7 @@ import Footer from "../../components/shared/Footer/Index";
 import { StyledProduto } from "./style";
 import Button from "../../components/common/Button";
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 const Produto = () => {
     const navigate = useNavigate();
@@ -41,6 +42,7 @@ const Produto = () => {
         };
         carrinhoAtual.push(novoProduto);
         localStorage.setItem('cart', JSON.stringify(carrinhoAtual));
+        toast.success("Adicionado ao carrinho", {icon:false})
     }
     
     const handleComprar = () => {

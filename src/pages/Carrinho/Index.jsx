@@ -5,6 +5,7 @@ import Button from "../../components/common/Button/index";
 import { Header } from "../../components/shared/Header/Index";
 import CarComponente from "../../components/common/CarComponente/Index";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Carrinho = () => {
     const [carrinho, setCarrinho] = useState([]);
@@ -39,7 +40,7 @@ const Carrinho = () => {
             };
             const resposta = await axios.post(urlApi, data);
             console.log("foi", resposta.data);
-            alert("Pedido Concluido!")
+            toast.success("Pedido Concluido!")
             localStorage.setItem('cart', JSON.stringify([]));
             getCarrinho();
         } catch (error) {
