@@ -6,6 +6,7 @@ import {useForm} from 'react-hook-form'
 import validator from 'validator';
 import {Header} from '../../components/shared/Header/Index'
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Cadastro = () => {
 
@@ -25,8 +26,11 @@ const Cadastro = () => {
       console.log(dadosCadastro);
       const resposta = await axios.post(urlApi, dadosCadastro);
       console.log("foi", resposta.data);
-      alert("Sucesso no Cadastro")
-      window.location.href = '/login'
+      toast.success("Sucesso no Cadastro")
+      setTimeout(() => {
+        window.location.href = '/login'
+      } , 3000)
+     
     } catch (error) {
         console.log(error);
     }

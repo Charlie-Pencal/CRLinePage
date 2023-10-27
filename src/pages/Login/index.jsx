@@ -4,6 +4,7 @@ import { Input } from '../../components/common/Input/Style'
 import Button from '../../components/common/Button'
 import { Link } from 'react-router-dom'
 import {Header} from '../../components/shared/Header/Index'
+import {toast} from 'react-toastify'
 
 const Login = () => {
   const idCliente = "6538827f773e2f64ceac545c"
@@ -14,10 +15,12 @@ function handleSubmit(){
   const name = 'Carla Monteiro'
   const user = {email:'carlamonteiro85@hotmail.com',password:'12345678'}
   if(user.email === emailValue && user.password === passwordValue){
-    alert(`${name} Seu login efetuado com sucesso`)
-    window.location.href = '/shop'
+    toast.success(`${name} Seu login efetuado com sucesso`)
+    setTimeout(() => {
+      window.location.href = '/shop'
+    } , 3000)
   } else {
-    alert('Email ou senha incorretos')
+    toast.warning('Email ou senha incorretos')
   }
 }
 
