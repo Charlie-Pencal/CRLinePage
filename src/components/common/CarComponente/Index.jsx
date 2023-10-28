@@ -8,7 +8,7 @@ const CarComponente = ({ data, handleRemoveItem }) => {
             <h4>{data.nome}</h4>
             <p>R$ {data.preco}</p>
             <p>R$ {data.quantidade}</p>
-            <Button variante={"segundo"} texto={"Lixeira"} on onClick={handleRemoveItem}/>
+            <Button variante={"segundo"} texto={"Lixeira"} onClick={() => handleRemoveItem(data.key)} />
         </StyledCarComponente>
     );
 };
