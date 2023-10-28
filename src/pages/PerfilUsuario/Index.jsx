@@ -8,7 +8,7 @@ import axios from 'axios';
 const PerfilUsuario = () => {
     
     // depois alterar idCliente para consumir o local storage
-    const idCliente = "6538827f773e2f64ceac545c"
+    const idCliente = JSON.parse(localStorage.getItem('userId'))
     const urlApi = `http://localhost:3000/clientes/${idCliente}`
 
     const [cliente, setCliente] = useState([])
