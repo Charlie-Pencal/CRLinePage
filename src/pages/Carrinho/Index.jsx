@@ -9,7 +9,8 @@ import { toast } from "react-toastify";
 
 const Carrinho = () => {
     const [carrinho, setCarrinho] = useState([]);
-    const idCliente = "6538827f773e2f64ceac545c"
+    const idCliente = JSON.parse(localStorage.getItem('userId'))
+    const urlApi = `http://localhost:3000/pedidos`;
 
     const getCarrinho = () => {
         const carrinhoLocalStorage =
@@ -30,22 +31,28 @@ const Carrinho = () => {
     };
     const total = totalCarrinho();
 
-    const urlApi = `http://localhost:3000/pedidos`;
-
     const handleCompra = async () => {
         try {
             const data = {
                 idCliente: idCliente,
                 produtosPedido: carrinho
             };
+            if (carrinho.length < 1) throw new Error("Carrinho vazio")
             const resposta = await axios.post(urlApi, data);
-            console.log("foi", resposta.data);
             toast.success("Pedido Concluido!")
             localStorage.setItem('cart', JSON.stringify([]));
             getCarrinho();
         } catch (error) {
             console.log(error);
         }
+    };
+
+    const handleRemoveItem = (key) => {
+        const novoCarrinho = [...carrinho];
+        const CarrinhoFiltrado = novoCarrinho.filter((item) =>
+            item.key !== key ? item : null
+        );
+        setCarrinho(CarrinhoFiltrado);
     };
 
     return (
@@ -59,6 +66,7 @@ const Carrinho = () => {
                                 key={item.key}
                                 id={item.id}
                                 data={item}
+                                handleRemoveItem={handleRemoveItem}
                             />
                         ))}
                         {carrinho.length === 0 && (

@@ -33,7 +33,7 @@ const Produto = () => {
         console.log("adicionado ao carrinho", params.id)
         const carrinhoAtual = JSON.parse(localStorage.getItem('cart')) || [];
         const novoProduto = {
-            key: params.id,
+            key: Math.round(Math.random() * 1000),
             idProduto: params.id,
             nome: produto.nome,
             preco: produto.preco,
@@ -89,10 +89,8 @@ const Produto = () => {
 
                 <div className="containerMaisDetalhes">
                     <h2>Descrição Adicional</h2>
-                    <p>Embodying the raw, wayward spirit of rock n roll, the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.</p>
-                    <p>Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering. Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>
-                    
-
+                    <p>A CRLine Cadernos foi fundada em agosto de 2022 com uma motivação profunda: superar um burnout e encontrar um propósito mais significativo na vida. A costura de cadernos tornou-se uma terapia transformadora e uma paixão.</p>
+                    <p>O que começou como uma atividade terapêutica rapidamente ganhou reconhecimento. Amigos e conhecidos, impressionados com a singularidade e qualidade dos cadernos, começaram a fazer pedidos personalizados. Isso levou a uma expansão natural de nossos serviços, à medida que aceitamos encomendas de clientes em todo o país.</p>
                 </div>
             
             </StyledProduto>
