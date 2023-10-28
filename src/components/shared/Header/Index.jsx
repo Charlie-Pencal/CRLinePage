@@ -5,8 +5,26 @@ import Cart from "/cart.svg";
 import Account from "/account.svg";
 import CrlineIcon from "/logo.svg";
 import { Link } from "react-router-dom";
+import { get } from "react-hook-form";
 
 export const Header = () => {
+
+    const getUser = JSON.parse(localStorage.getItem('userId'))
+    
+const autenticUser = () =>{
+
+    if(getUser === null){
+        window.location.href = "/login"
+    }
+
+    else{
+
+    window.location.href ='/perfil'
+
+    }
+    
+
+}
 
     return (
         <S.StyleHeader className="content">
@@ -45,7 +63,7 @@ export const Header = () => {
                         </li>
 
                         <li>
-                            <Link to="/login" className={"link"}>
+                            <Link onClick={autenticUser} className={"link"}>
                                 <img src={Account} alt="conta usuario" />
                             </Link>
                         </li>
