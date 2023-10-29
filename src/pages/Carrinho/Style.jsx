@@ -24,6 +24,7 @@ export const StyledCarrinho = styled.section`
 
     .carrinho-aside {
         background-color: #043a55;
+        border-radius: 8px;
         width: 393px;
         height: 390px;
         max-height: 400px;

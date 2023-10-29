@@ -4,13 +4,16 @@ export const StyledCarComponente = styled.section`
     display: flex;
     padding: 20px;
     justify-content: space-between;
-    box-shadow: 5px 6px 4px 3px rgba(0, 0, 0, 0.25);
-
+    align-items: center;
+    background-color: #043a55;
+    border-radius: 8px;
+    
     .img-lixeira {
         background-color: ${(props) => props.theme.azul};
     }
-
+    
     .imgtd-produto {
+        border-radius: 8px;
         width: 115px;
         height: 105px;
         top: 598px;

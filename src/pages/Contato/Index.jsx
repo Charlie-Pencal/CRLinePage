@@ -3,7 +3,7 @@ import { StyledContato } from "./style";
 import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import Button from "../../components/common/Button";
-import Input from "../../components/common/Input/Index";
+import { Input } from '../../components/common/Input/Style'
 
 const Contato = () => {
     return (
@@ -30,15 +30,19 @@ const Contato = () => {
                     <form className="containerFormulario">
                         <label className="descricaoLabel">Seu Nome</label>
                         <Input
-                            width={"100%"}
-                            height={"45px"}
-                            radius={"8px"}
+                            type="text"
+                            width='100%'
+                            height='45px'
+                            radius='8px'
+                            padding='10px'
                         />
                         <label className="descricaoLabel">Email</label>
                         <Input
-                            width={"100%"}
-                            height={"45px"}
-                            radius={"8px"}
+                            type="text"
+                            width='100%'
+                            height='45px'
+                            radius='8px'
+                            padding='10px'
                         />
                         <label className="descricaoLabel">Sua Mensagem</label>
                         <textarea
