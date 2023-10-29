@@ -7,6 +7,7 @@ import axios from 'axios';
 import Button from '../../components/common/Button';
 import Modal from '../../components/common/Modal';
 import Input from '../../components/common/Input/Index';
+import { LinkDaApi } from "../../service/api";
 import { set } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -15,8 +16,7 @@ const PerfilUsuario = () => {
     const params = useParams()
     
     const idCliente = JSON.parse(localStorage.getItem('userId'))
-    
-    const urlApi = `http://localhost:3000/clientes/${idCliente}`
+    const urlApi = `${LinkDaApi}/clientes/${idCliente}`
 
     const [cliente, setCliente] = useState([])
     const [modalAberto, setModalAberto] = useState(false)

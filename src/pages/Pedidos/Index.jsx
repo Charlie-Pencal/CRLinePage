@@ -4,11 +4,12 @@ import Footer from "../../components/shared/Footer/Index";
 import { StyledPedidos } from "./style";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { LinkDaApi } from "../../service/api";
 
 const Pedidos = () => {
     
     const idCliente = JSON.parse(localStorage.getItem('userId'))
-    const urlApi = `http://localhost:3000/clientes/${idCliente}/pedidos`;
+    const urlApi = `${LinkDaApi}/clientes/${idCliente}/pedidos`;
     const [pedidos, setPedidos] = useState([])
 
     const getPedidos = async() => {

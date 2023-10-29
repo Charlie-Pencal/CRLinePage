@@ -6,11 +6,12 @@ import { Header } from "../../components/shared/Header/Index";
 import CarComponente from "../../components/common/CarComponente/Index";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { LinkDaApi } from "../../service/api";
 
 const Carrinho = () => {
     const [carrinho, setCarrinho] = useState([]);
     const idCliente = JSON.parse(localStorage.getItem('userId'))
-    const urlApi = `http://localhost:3000/pedidos`;
+    const urlApi = `${LinkDaApi}/pedidos`;
 
     const getCarrinho = () => {
         const carrinhoLocalStorage =
@@ -19,7 +20,11 @@ const Carrinho = () => {
     };
 
     useEffect(() => {
-        getCarrinho();
+        if (idCliente){
+            getCarrinho()
+        } else {
+            window.location.href = "/login"
+        }
     }, []);
 
     const totalCarrinho = () => {

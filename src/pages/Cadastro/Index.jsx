@@ -7,10 +7,11 @@ import validator from 'validator';
 import {Header} from '../../components/shared/Header/Index'
 import axios from "axios";
 import { toast } from "react-toastify";
+import { LinkDaApi } from "../../service/api";
 
 const Cadastro = () => {
 
-  const urlApi = `http://localhost:3000/clientes`;
+  const urlApi = `${LinkDaApi}/clientes`;
 
   const {register, handleSubmit, formState: {errors},watch} = useForm();
   
