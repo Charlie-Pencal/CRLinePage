@@ -34,11 +34,13 @@ export const StyledPedidos = styled.section`
         }
         .itemNav {
             border-left: solid 1px ${(props) => props.theme.areia};
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.05);
+            border-radius: 8px;
             padding: 1rem 0.5rem;
         }
         .itemNav:hover {
             border-left: solid 1px ${(props) => props.theme.areia};
-            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.1);
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.15);
         }
     }
     .containerInfos {
@@ -66,16 +68,28 @@ export const StyledPedidos = styled.section`
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            /* padding-top: 1rem; */
             padding: 1rem;
             width: 100%;
+            gap: 1rem;
 
             .descricaoPedido {
                 text-align: start;
             }
+        }
+        .itemPedido{
+            display: flex;
+            justify-content: end;
+            gap: 1rem;
+
+            .imagemProduto{
+                width: 30px;
+            }
             .produtosPedido {
                 text-align: end;
             }
+        }
+        .listaPedidosVazia{
+            padding: 1rem;
         }
     }
 `;
