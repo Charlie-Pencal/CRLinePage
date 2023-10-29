@@ -1,0 +1,1 @@
+export const LinkDaApi = "http://localhost:3000"
