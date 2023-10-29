@@ -4,9 +4,29 @@
 
 ## 📚 Sobre a CRLine
 
- Com seu inicio desprentencioso e apenas como hobby do Charlie Pencal ...
+ A loja CRLine é um pequeno comércio de cadernos artesanais, com produtos feitos sob encomenda e alguns a pronta entrega.
+ Surgiu de um hobby de Charlie Pencal, onde começou a receber pedidos de amigos e depois foi se expandindo naturalmente.
 
+
+ Veja aqui os slides da apresentação: [Clique Aqui](https://www.canva.com/design/DAFySfwwnwk/wbxOmr2etEB__1Blr-b8kQ/view)
 ## 🚀 Resultados
+
+<div align="center">
+Página Shop
+  <img src="./public/imageProdutos.png">
+  Produto
+  <img src="./public/imageProduto.png">
+  Login
+  <img src="./public/imageLogin.png">
+  Cadastro
+  <img src="./public/imageCadastro.png">
+  Carrinho
+  <img src="./public/imageCarrinhoCompra.gif">
+  Perfil do Cliente
+  <img src="./public/imagePerfil.png">
+  Alteração dos Dados Pessoais
+  <img src="./public/imageEdicaoPerfil.gif">
+</div>
 
 ## 🛠️ Como instalar e rodar o App
 
@@ -23,11 +43,11 @@ git clone https://github.com/Charlie-Pencal/CRLinePage.git
 Entre na pasta onde estão os aquivos:
 
 ```
-cd .\CRLinePage\
+cd CRLinePage
 ```
 Instale os pacotes necessários para a ferramenta funcionar:
 ```
-npm run build
+npm install
 ```
 Rode o App:
 ```
