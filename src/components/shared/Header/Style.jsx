@@ -16,13 +16,6 @@ export const StyleHeader = styled.header`
   gap: 30px;
 }
 
-.divSerach{
-  display: contents;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  
-}
 
 .divLogo{
   display: flex;
