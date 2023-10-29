@@ -13,9 +13,7 @@ const Modal = ({open,title,fechar,children}) => {
     {open &&
         <StyledModal>
             <div className="StyledConteudoModal">
-                <h1 className="tituloModal">{title}</h1>
                 {children}
-                <Button variante={"primeiro"} texto={"Fechar"} onClick={handleFechar}/>
             </div>
         </StyledModal>
     }
