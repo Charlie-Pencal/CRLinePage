@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home/Index';
 import Shop from './pages/Shop/Index';
 import Produto from './pages/Produto/Index';
-import Login from './pages/Login/Index';
+import Login from './pages/Login/index';
 import Cadastro from './pages/Cadastro/Index';
 import Carrinho from './pages/Carrinho/Index';
 import PerfilUsuario from './pages/PerfilUsuario/Index';

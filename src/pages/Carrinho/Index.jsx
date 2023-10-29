@@ -53,6 +53,7 @@ const Carrinho = () => {
             item.key !== key ? item : null
         );
         setCarrinho(CarrinhoFiltrado);
+        localStorage.setItem('cart', JSON.stringify(CarrinhoFiltrado));
     };
 
     return (
