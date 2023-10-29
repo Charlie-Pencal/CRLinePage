@@ -6,12 +6,13 @@ import { StyledProduto } from "./style";
 import Button from "../../components/common/Button";
 import axios from 'axios'
 import {toast} from 'react-toastify'
+import { LinkDaApi } from "../../service/api";
 
 const Produto = () => {
     const navigate = useNavigate();
     const params = useParams()
     
-    const urlApi = `http://localhost:3000/produtos/${params.id}`
+    const urlApi = `${LinkDaApi}/produtos/${params.id}`
 
     const [produto, setProduto] = useState([])
 

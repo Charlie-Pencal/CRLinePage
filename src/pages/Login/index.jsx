@@ -6,9 +6,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Header } from '../../components/shared/Header/Index'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { LinkDaApi } from "../../service/api";
 
 const Login = () => {
-  const urlApi = "http://localhost:3000/clientes/login"
+  const urlApi = `${LinkDaApi}/clientes/login`
   
   const [passwordValue, setPasswordValue] = useState('');
   const [emailValue, setEmailValue] = useState('');

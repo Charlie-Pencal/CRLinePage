@@ -7,10 +7,11 @@ import Cards from '../../components/common/Cards'
 // import Filter from "/filter.svg"
 import Footer from '../../components/shared/Footer/Index'
 import axios from 'axios'
+import { LinkDaApi } from "../../service/api";
 
 const Shop = () => {
 
-    const urlApi = "http://localhost:3000/produtos"
+    const urlApi = `${LinkDaApi}/produtos`
 
     const [produtos, setProdutos] = useState([])
 
