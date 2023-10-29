@@ -34,11 +34,13 @@ export const StyledPerfilUsuario = styled.section`
         }
         .itemNav {
             border-left: solid 1px ${(props) => props.theme.areia};
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.05);
+            border-radius: 8px;
             padding: 1rem 0.5rem;
         }
         .itemNav:hover {
             border-left: solid 1px ${(props) => props.theme.areia};
-            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.1);
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.15);
         }
     }
     .containerInfos {

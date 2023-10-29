@@ -82,7 +82,8 @@ export const StyledPedidos = styled.section`
             gap: 1rem;
 
             .imagemProduto{
-                width: 30px;
+                width: 40px;
+                border-radius: 8px;
             }
             .produtosPedido {
                 text-align: end;
