@@ -48,6 +48,7 @@ export const StyledPerfilUsuario = styled.section`
         flex-direction: column;
         padding: 0 2rem;
         width: 100%;
+        gap: 10px;
 
         h2 {
             padding: 1rem;

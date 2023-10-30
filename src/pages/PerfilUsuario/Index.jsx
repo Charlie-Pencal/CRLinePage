@@ -20,6 +20,7 @@ const PerfilUsuario = () => {
 
     const [cliente, setCliente] = useState([])
     const [modalAberto, setModalAberto] = useState(false)
+    const [modalDelete, setModalDelete] = useState(false)
     
 
     const getCliente = async() => {
@@ -55,6 +56,20 @@ const PerfilUsuario = () => {
             
     }
 
+    const excluirConta = async () => {
+        try {
+            await axios.delete(urlApi)
+            toast.success('Conta excluída com sucesso');
+            localStorage.removeItem('userId')
+            setTimeout(() => {
+                window.location.href = '/login'
+            }, 3000)
+        } catch (error) {
+            console.error('Erro na requisição DELETE:', error);
+            toast.error('Erro ao excluir conta');
+        }
+    }
+
     return (
         <>
             <Header />
@@ -84,6 +99,7 @@ const PerfilUsuario = () => {
                             </div>
                         </div>
                         <Button variante={"quinto"} texto={"Editar Dados Pessoais"} onClick={() => setModalAberto(true)}/>
+                        <Button variante={"quarto"} texto={"Excluir Conta"} onClick={() => setModalDelete(true)}/>
                     </div>
                 </div>
             </StyledPerfilUsuario>
@@ -122,6 +138,13 @@ const PerfilUsuario = () => {
                 onChange={(event) => setCliente({...cliente, email: event.target.value})}
                   />
                 <Button variante={"primeiro"} texto={"Salvar"} onClick={() => atualizarDados()}/>
+            </Modal>
+            <Modal  open={modalDelete} fechar={() => setModalDelete(false)}>
+                <h1>Tem certeza que deseja excluir sua conta?</h1>
+                <p>Essa opção não pode ser desfeita</p>
+                
+                <Button variante={"primeiro"} texto={"Excluir"} onClick={() => excluirConta()}/>
+                <Button variante={"terceiro"} texto={"Cancelar"} onClick={() => setModalDelete(false)}/>
             </Modal>
         </>
     );
