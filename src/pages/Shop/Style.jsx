@@ -47,12 +47,17 @@ line-height: normal;
 `
 
 export const  ProductSection = styled.section`
-display: grid;
+display: flex;
+margin:0 auto;
+padding-bottom: 100px;
 justify-content: center;
 align-items: center;
 justify-content: center;
-height: 1350px;
-padding: 100px;
+height: fit-content;
+
+gap: 32px;
+width: 80%;
+flex-wrap: wrap;
 
 
 

@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const StyledPedidos = styled.section`
+    background-color: #043A55;
     display: flex;
-    border-radius: 8px;
-    background-color: ${(props) => props.theme.marrom};
-    width: 1000px;
-    min-height: 500px;
-    padding: 3rem 4rem;
-    margin: 4rem auto 10rem auto;
+
+    .containerGeral{
+        display: flex;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: ${(props) => props.theme.azul};
+        width: 1000px;
+        min-height: 500px;
+        padding: 3rem 4rem;
+        margin: 4rem auto 10rem auto;
+    }
 
     .containerNav {
         display: flex;
@@ -24,17 +30,19 @@ export const StyledPedidos = styled.section`
         nav {
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
         }
         .itemNav {
-            border-left: solid transparent;
+            border-left: solid 1px ${(props) => props.theme.areia};
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.05);
+            border-radius: 8px;
             padding: 1rem 0.5rem;
         }
         .itemNav:hover {
-            border-left: solid ${(props) => props.theme.areia};
-            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.1);
+            border-left: solid 1px ${(props) => props.theme.areia};
+            box-shadow: inset 0 0 100px 100px rgba(100, 100, 100, 0.15);
         }
     }
-
     .containerInfos {
         padding: 0 2rem;
         width: 100%;
@@ -50,7 +58,6 @@ export const StyledPedidos = styled.section`
             }
         }
     }
-
     .containerPedidos {
         display: flex;
         flex-direction: column;
@@ -61,17 +68,29 @@ export const StyledPedidos = styled.section`
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            /* padding-top: 1rem; */
             padding: 1rem;
             width: 100%;
+            gap: 1rem;
 
             .descricaoPedido {
                 text-align: start;
+            }
+        }
+        .itemPedido{
+            display: flex;
+            justify-content: end;
+            gap: 1rem;
+
+            .imagemProduto{
+                width: 40px;
+                border-radius: 8px;
             }
             .produtosPedido {
                 text-align: end;
             }
         }
+        .listaPedidosVazia{
+            padding: 1rem;
+        }
     }
-    /* } */
 `;

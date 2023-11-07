@@ -1,12 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./Style";
 import Search from "/search.svg";
 import Cart from "/cart.svg";
 import Account from "/account.svg";
 import CrlineIcon from "/logo.svg";
 import { Link } from "react-router-dom";
+import { get } from "react-hook-form";
+import Button from "../../common/Button";
 
 export const Header = () => {
+
+    const getUser = JSON.parse(localStorage.getItem('userId'))
+    const [log, setLog] = useState(!!getUser)
+
+
+    const autenticUser = (e) => {
+        e.preventDefault()
+
+
+        if (getUser === null) {
+
+            window.location.href = "/login"
+        }
+
+        else {
+
+            window.location.href = '/perfil'
+
+        }
+
+
+    }
+
+
+    const autenticCart = (e) => {
+        e.preventDefault()
+        if (getUser === null) {
+            window.location.href = "/login"
+        }
+
+        else {
+
+            window.location.href = '/carrinho'
+
+        }
+
+
+    }
+
+
+    const logout = (e) => {
+        e.preventDefault()
+        localStorage.setItem('userId', JSON.stringify(null))
+        window.location.href = "/login"
+        setLog(false)
+
+
+    }
+
+
+
 
     return (
         <S.StyleHeader className="content">
@@ -29,26 +82,21 @@ export const Header = () => {
                     <li>
                         <Link to="/contato" className={"link"}>Contato</Link>
                     </li>
-                    <div className="divSerach">
-                        <li>
-                            <a className={"link"}>
-                                <img src={Search} alt="lupa pesquisa" />
-                            </a>
-                        </li>
-                    </div>
+
 
                     <div className="divAcc-cart">
                         <li>
                             <Link to="/carrinho" className={"link"}>
-                                <img src={Cart} alt="carrinho" />
+                                <img src={Cart} onClick={autenticCart} alt="carrinho" />
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/login" className={"link"}>
+                            <Link onClick={autenticUser} className={"link"}>
                                 <img src={Account} alt="conta usuario" />
                             </Link>
                         </li>
+                        {log ? (<Button variante={"primeiro"} texto={"Logout"} onClick={logout} />) : null}
                     </div>
                 </ul>
             </nav>

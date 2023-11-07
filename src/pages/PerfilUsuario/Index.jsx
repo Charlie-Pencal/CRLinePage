@@ -1,47 +1,151 @@
-import React from "react";
+import { useEffect, useState } from 'react'
 import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import { StyledPerfilUsuario } from "./style";
+import { Link, useParams } from "react-router-dom";
+import axios from 'axios';
+import Button from '../../components/common/Button';
+import Modal from '../../components/common/Modal';
+import Input from '../../components/common/Input/Index';
+import { LinkDaApi } from "../../service/api";
+import { set } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const PerfilUsuario = () => {
+    
+    const params = useParams()
+    
+    const idCliente = JSON.parse(localStorage.getItem('userId'))
+    const urlApi = `${LinkDaApi}/clientes/${idCliente}`
+
+    const [cliente, setCliente] = useState([])
+    const [modalAberto, setModalAberto] = useState(false)
+    const [modalDelete, setModalDelete] = useState(false)
+    
+
+    const getCliente = async() => {
+        try {
+            const resposta = await axios.get(urlApi)
+            const data = resposta.data
+            setCliente(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getCliente()
+    }, [])
+    
+
+    const atualizarDados = async () => {
+        try {
+            const data = {
+                nome: cliente.nome,
+                sobrenome: cliente.sobrenome,
+                email: cliente.email
+            }
+            await axios.patch(urlApi, data);
+            
+            setModalAberto(false);
+            toast.success('Dados atualizados com sucesso');
+        } catch (error) {
+            console.error('Erro na requisição PATCH:', error);
+            toast.error('Erro ao atualizar dados');
+        }
+            
+    }
+
+    const excluirConta = async () => {
+        try {
+            await axios.delete(urlApi)
+            toast.success('Conta excluída com sucesso');
+            localStorage.removeItem('userId')
+            setTimeout(() => {
+                window.location.href = '/login'
+            }, 3000)
+        } catch (error) {
+            console.error('Erro na requisição DELETE:', error);
+            toast.error('Erro ao excluir conta');
+        }
+    }
+
     return (
         <>
             <Header />
             <StyledPerfilUsuario>
-                <div className="containerNav">
-                    {/* Imagem em texto pra não ter q baixar */}
-                    {/* Já serve de exemplo para consumir a API */}
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAANlBMVEW/v7////+8vLzDw8Po6Oj29vb6+vrMzMzz8/PU1NTAwMD8/PzIyMjX19fd3d309PTt7e3g4OAycvPjAAAFU0lEQVR4nO2d25arIAyG2wACClTf/2W3tNNVO2NbhQihO9/FzK3/AnMySU8nhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhiwQqf0QxxCVCWet99Zqd/o2nQC9ncaL6rphpuuUMjK47xEJfTDD+S+d1F8hUthxRd0Pw+T62g+YBzhvXuu7Iq1o9yBB2E/6rhp1s+eo5QZ98YWcXJPH2Hu1TeCMsbWfNgEh1+zn62Ns76ZueQOXjLUfeCdizwH+HGNTp+i2v4IPlKv92JsBfUkQONsb3YhJBfcminnL2IjXEBvd4ApS1H74TYRkgedzaMHc6P1m9MGgaz/+Z8ReR/iMIn9PIeeORiR1YyMyBZ7PxL0ipNvROyPtQ8wyMzdoGxuEIyR+iEnx6G86wocIE4JA0uZUpAakzxiyPhFsh6Kw81QPEemSns8TVYUZScUzI9VrqvNC0gcXotYUbL67v9FZmtcUPJLA85moqemxDM2cCNNUiGZoZmNaW8s6yQWoFYU0ixkOy5SSrUhpjLCbtkKcmO3/UDjSLGX8B7f06xV+vy39fn+IGNOE2lpekFvuXiikGZd+f26BVaahmx/i5fiGaI5/6rFMDVFngfBl7Q5RQ3NCi2oU4R4wHJ9PuD0KAka1bSDqK25gXNNLbRHvQLE1dO3MlfxDvNAWCDZbIdV45g7kxjWkv3FfyexVoN2ncCPP2FDNDJdkfeomG5EuSe2fjTTSQws21WUo6nb0Dvg0a0M28V0hSSLtePQ3KY6fcM60wv5v+kNDV/TGzmxYNeDpfwG7CsSyzSHEzcNrqikbswCc3FJBjfPAtR81GbAfNQ6yORPzBIj3Gjvp23wDF4DQ4VXOqIJuIdLegHDTH6MzmMkJmp8JU3E2yBtTsK5v/W6uAQtqPwvDMAzDMEwCtzhGOKdnnHPim9aaRSFzSDpJOZqZi7rMf8fxGp2K9lXe1pgZ1a1V3oZOmXHSp3ZVAuhpdY3Zs87BtLm6rRd6x5KhQerGckWhp71dfGpqKN/XPqnBbZCeZov+L+LLl6LvipnIFxbByczNH5L0Fh4QfytO+zVOZGs4kP7x95dGqkV+tBZhmk3CIPA69SMTtVJ4r/HGSW4YUhsx5wPEGuN+0AU6xzi7CHyB11COikREE/MMkaWfeIsG/kKifQFtBGGd+g3DiGsG1pGVTSriRN5LiVWTqgICZ4kVc6oiAmueYiGBFSUea0WX1NkEgjgy+pka+RToggJrTGEAwobEPQzFY1TE9QLbMIV9RjEz+qCwQU3sVc9hKDlsAohLPrajCr6KFe5opOA9LekJl/hSAh3eMqF9dIXsKcoq3TQK7W4tG8w8U6RSDNiV0T2YAoeIMOmbQ4n4tHS49ow5XB/O2oR0hsOLb5k/fZDP0Yuiax/h8eEp4sayVA7eOFiuNPOaYw/x+xX2BN7Dg8v8eCvLEgUeX3Wrk/3eKZIFQ/Ei1ANTqJ1o308bIlIuyRehxsvYTQWrbT1S99MelC37rbR4cFO6Inwq7fxrfH0q6TZKlkqXEsWmcft8uoobF9795jYaVfuGwIWjr2oXajcN62MbamT9TlPAb7x8YIj88PpR/r/zZCYw0Dq8l6hAalYIIFwww/HhEk6U9EWg9yPaPu8xkJxIiJN4GKmjmSxJfRGII095l7WTXpO7n0+8W0fzmdFrGu7hA8L5FBc5ekfGO3wGTlaqHROWcWithcNbAo8Z4NdKhzgLLINuduI5TqQL7YOU42guSnV3VJzoHkc5xfeuVXUPrqP3vdPaznjv4z+tf2byaz8cLrxEiWEYhmEYhmEYhmGO4x+XEEYrUwlCZQAAAABJRU5ErkJggg==" alt="Foto de perfil do usuário" className="containerImg"/>
-                    <nav>
-                        <a href="" className="itemNav">Dados Pessoais</a>
-                        <a href="" className="itemNav">Endereços</a>
-                        <a href="" className="itemNav">Pedidos</a>
-                    </nav>
-                </div>
-                <div className="containerInfos">
-                    <h2>Olá Gertrude <span>Se esse for seu nome</span></h2>
-                    <form className="formularioDadosPessoais" onSubmit={""}>
-                        <div>
-                            <label>Nome</label>
-                            <input type="text" placeholder="Gertrude Joaquina" readOnly/>
+                <div className="containerGeral">
+                    <div className="containerNav">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTip18a5vyLJJXYZgGE44WTFaislpkAcvQURSqLik0tsv8DuPggkyib-NrlShXqM2mO9k&usqp=CAU" alt="Foto de perfil do usuário" className="containerImg"/>
+                        <nav>
+                            <Link to="/perfil" className="itemNav">Dados Pessoais</Link>
+                            <Link to="/pedidos" className="itemNav">Pedidos</Link>
+                        </nav>
+                    </div>
+                    <div className="containerInfos">
+                        <h2>Dados Pessoais</h2>
+                        <div className="containerDadosPessoais">
+                            <div>
+                                <h4>Nome: </h4>
+                                <p>{cliente.nome}</p>
+                            </div>
+                            <div>
+                                <h4>Sobrenome: </h4>
+                                <p>{cliente.sobrenome}</p>
+                            </div>
+                            <div>
+                                <h4>Email: </h4>
+                                <p>{cliente.email}</p>
+                            </div>
                         </div>
-                        <div>
-                            <label>CPF</label>
-                            <input type="text" placeholder="000.000.000-00" readOnly/>
-                        </div>
-                        <div>
-                            <label>Telefone</label>
-                            <input type="text" placeholder="(00)0000-0000" readOnly/>
-                        </div>
-                        <div>
-                            <label>Email</label>
-                            <input type="text" placeholder="email@provedor.com" readOnly/>
-                        </div>
-                        <button type="submit">Editar Dados</button>
-                    </form>
+                        <Button variante={"quinto"} texto={"Editar Dados Pessoais"} onClick={() => setModalAberto(true)}/>
+                        <Button variante={"quarto"} texto={"Excluir Conta"} onClick={() => setModalDelete(true)}/>
+                    </div>
                 </div>
             </StyledPerfilUsuario>
             <Footer />
+
+            <Modal  open={modalAberto} fechar={() => setModalAberto(false)}>
+                <h1>Alteração dos Dados Pessoais</h1>
+                <label htmlFor="">Nome</label>
+                <Input 
+                type="text"
+                width='50%'
+                height='45px'
+                radius='8px'
+                padding='10px'
+                value={cliente.nome}
+                onChange={(event) => setCliente({...cliente, nome: event.target.value})}
+                  />
+                <label htmlFor="">Sobrenome</label>
+                <Input
+                type="text"
+                width='50%'
+                height='45px'
+                radius='8px'
+                padding='10px'
+                value={cliente.sobrenome}
+                onChange={(event) => setCliente({...cliente, sobrenome: event.target.value})}
+                  />
+                <label htmlFor="">Email</label>
+                <Input
+                type="text"
+                width='100%'
+                height='45px'
+                radius='8px'
+                padding='10px'
+                value={cliente.email}
+                onChange={(event) => setCliente({...cliente, email: event.target.value})}
+                  />
+                <Button variante={"primeiro"} texto={"Salvar"} onClick={() => atualizarDados()}/>
+            </Modal>
+            <Modal  open={modalDelete} fechar={() => setModalDelete(false)}>
+                <h1>Tem certeza que deseja excluir sua conta?</h1>
+                <p>Essa opção não pode ser desfeita</p>
+                
+                <Button variante={"primeiro"} texto={"Excluir"} onClick={() => excluirConta()}/>
+                <Button variante={"terceiro"} texto={"Cancelar"} onClick={() => setModalDelete(false)}/>
+            </Modal>
         </>
     );
 };
