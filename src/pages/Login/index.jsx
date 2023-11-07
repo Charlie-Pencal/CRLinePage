@@ -1,62 +1,43 @@
-import React, { useState } from 'react'
-import { StyledLogin } from './style'
-import { Input } from '../../components/common/Input/Style'
-import Button from '../../components/common/Button'
-import { Link, useNavigate } from 'react-router-dom'
-import { Header } from '../../components/shared/Header/Index'
-import axios from 'axios'
-import { toast } from 'react-toastify'
+import React, { useState } from 'react';
+import { StyledLogin } from './style';
+import { Input } from '../../components/common/Input/Style';
+import Button from '../../components/common/Button';
+import { Link, useNavigate } from 'react-router-dom';
+import { Header } from '../../components/shared/Header/Index';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 import { LinkDaApi } from "../../service/api";
 
 const Login = () => {
-  const urlApi = `${LinkDaApi}/clientes/login`
-  
+  const urlApi = `${LinkDaApi}/clientes/login`;
+
   const [passwordValue, setPasswordValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
-  
 
-
+  const navigate = useNavigate(); 
 
   async function submit() {
-    
     try {
-      
       const cliente = {
         email: emailValue,
         senha: passwordValue
-      } 
+      };
 
+      const response = await axios.post(urlApi, cliente);
+      console.log(response);
+      const userId = response.data.id;
+      localStorage.setItem('userId', JSON.stringify(userId));
 
-      
-      
-      const response = await axios.post(urlApi, cliente)
-      console.log(response)
-      const userId = response.data.id
-      localStorage.setItem('userId', JSON.stringify(userId))
-      
+      toast.success("Login realizado com sucesso, redirecionando para a página de compras");
 
-  
-      
-      
-
-    
-      toast.success("Login realizado com sucesso, redirecionando para pagina de compras")
-    
       setTimeout(() => {
-        window.location.href = "/shop"
+        navigate('/shop'); 
       }, 3000);
-    
-    
     } catch (error) {
-      toast.error("Dados invalidos, tente novamente!")
-      
-      console.log(error)
+      toast.error("Dados inválidos, tente novamente!");
+      console.log(error);
     }
   }
-
-
-
-
 
   return (
     <>
@@ -95,7 +76,7 @@ const Login = () => {
         </section>
       </StyledLogin>
     </>
-  )
+  );
 }
 
-export default Login
+export default Login;

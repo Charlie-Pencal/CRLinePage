@@ -7,6 +7,7 @@ import CarComponente from "../../components/common/CarComponente/Index";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { LinkDaApi } from "../../service/api";
+import { useNavigate } from "react-router-dom";
 
 const Carrinho = () => {
     const [carrinho, setCarrinho] = useState([]);
@@ -19,13 +20,15 @@ const Carrinho = () => {
         setCarrinho(carrinhoLocalStorage);
     };
 
+    const navigate = useNavigate(); 
+
     useEffect(() => {
         if (idCliente){
             getCarrinho()
         } else {
-            window.location.href = "/login"
+            navigate('/login'); 
         }
-    }, []);
+    }, [navigate]);
 
     const totalCarrinho = () => {
         let soma = 0;
