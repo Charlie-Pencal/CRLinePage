@@ -8,6 +8,7 @@ import Cards from '../../components/common/Cards'
 import Footer from '../../components/shared/Footer/Index'
 import axios from 'axios'
 import { LinkDaApi } from "../../service/api";
+import Loader from '../../components/common/Loader/Index'
 
 const Shop = () => {
 
@@ -48,6 +49,11 @@ const Shop = () => {
                     <Cards data={produto} />
                 </div>
             ))}
+             {produtos.length === 0 && (
+                 <div style={{ textAlign: "center" }}>
+                     <Loader texto={"Carregando produtos..."}/>
+                 </div>
+             )}
 
         </S.ProductSection>
         <Footer />
