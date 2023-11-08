@@ -1,65 +1,43 @@
 import React, { useState } from "react";
 import * as S from "./Style";
-import Search from "/search.svg";
 import Cart from "/cart.svg";
 import Account from "/account.svg";
 import CrlineIcon from "/logo.svg";
-import { Link } from "react-router-dom";
-import { get } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../common/Button";
 
+
 export const Header = () => {
+    const getUser = JSON.parse(localStorage.getItem('userId'));
+    const [log, setLog] = useState(!!getUser);
 
-    const getUser = JSON.parse(localStorage.getItem('userId'))
-    const [log, setLog] = useState(!!getUser)
-
+    const navigate = useNavigate();
 
     const autenticUser = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
 
         if (getUser === null) {
-
-            window.location.href = "/login"
+            navigate("/login");
+        } else {
+            navigate('/perfil');
         }
-
-        else {
-
-            window.location.href = '/perfil'
-
-        }
-
-
-    }
-
+    };
 
     const autenticCart = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (getUser === null) {
-            window.location.href = "/login"
+            navigate("/login");
+        } else {
+            navigate('/carrinho');
         }
-
-        else {
-
-            window.location.href = '/carrinho'
-
-        }
-
-
-    }
-
+    };
 
     const logout = (e) => {
-        e.preventDefault()
-        localStorage.setItem('userId', JSON.stringify(null))
-        window.location.href = "/login"
-        setLog(false)
-
-
-    }
-
-
-
+        e.preventDefault();
+        localStorage.setItem('userId', JSON.stringify(null));
+        navigate("/login");
+        setLog(false);
+    };
 
     return (
         <S.StyleHeader className="content">
@@ -83,7 +61,6 @@ export const Header = () => {
                         <Link to="/contato" className={"link"}>Contato</Link>
                     </li>
 
-
                     <div className="divAcc-cart">
                         <li>
                             <Link to="/carrinho" className={"link"}>
@@ -96,7 +73,7 @@ export const Header = () => {
                                 <img src={Account} alt="conta usuario" />
                             </Link>
                         </li>
-                        {log ? (<Button variante={"primeiro"} texto={"Logout"} onClick={logout} />) : null}
+                        {log ? <Button variante={"primeiro"} texto={"Logout"} onClick={logout} /> : null}
                     </div>
                 </ul>
             </nav>

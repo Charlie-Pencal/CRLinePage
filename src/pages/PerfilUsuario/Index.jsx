@@ -2,28 +2,28 @@ import { useEffect, useState } from 'react'
 import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import { StyledPerfilUsuario } from "./style";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Button from '../../components/common/Button';
 import Modal from '../../components/common/Modal';
 import Input from '../../components/common/Input/Index';
 import { LinkDaApi } from "../../service/api";
-import { set } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const PerfilUsuario = () => {
-    
+
     const params = useParams()
-    
+
     const idCliente = JSON.parse(localStorage.getItem('userId'))
     const urlApi = `${LinkDaApi}/clientes/${idCliente}`
 
     const [cliente, setCliente] = useState([])
     const [modalAberto, setModalAberto] = useState(false)
     const [modalDelete, setModalDelete] = useState(false)
-    
 
-    const getCliente = async() => {
+    const navigate = useNavigate(); 
+
+    const getCliente = async () => {
         try {
             const resposta = await axios.get(urlApi)
             const data = resposta.data
@@ -36,7 +36,6 @@ const PerfilUsuario = () => {
     useEffect(() => {
         getCliente()
     }, [])
-    
 
     const atualizarDados = async () => {
         try {
@@ -44,26 +43,25 @@ const PerfilUsuario = () => {
                 nome: cliente.nome,
                 sobrenome: cliente.sobrenome,
                 email: cliente.email
-            }
+            };
             await axios.patch(urlApi, data);
-            
+
             setModalAberto(false);
             toast.success('Dados atualizados com sucesso');
         } catch (error) {
             console.error('Erro na requisição PATCH:', error);
             toast.error('Erro ao atualizar dados');
         }
-            
     }
 
     const excluirConta = async () => {
         try {
-            await axios.delete(urlApi)
+            await axios.delete(urlApi);
             toast.success('Conta excluída com sucesso');
-            localStorage.removeItem('userId')
+            localStorage.removeItem('userId');
             setTimeout(() => {
-                window.location.href = '/login'
-            }, 3000)
+                navigate('/login'); 
+            }, 3000);
         } catch (error) {
             console.error('Erro na requisição DELETE:', error);
             toast.error('Erro ao excluir conta');
@@ -76,7 +74,7 @@ const PerfilUsuario = () => {
             <StyledPerfilUsuario>
                 <div className="containerGeral">
                     <div className="containerNav">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTip18a5vyLJJXYZgGE44WTFaislpkAcvQURSqLik0tsv8DuPggkyib-NrlShXqM2mO9k&usqp=CAU" alt="Foto de perfil do usuário" className="containerImg"/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTip18a5vyLJJXYZgGE44WTFaislpkAcvQURSqLik0tsv8DuPggkyib-NrlShXqM2mO9k&usqp=CAU" alt="Foto de perfil do usuário" className="containerImg" />
                         <nav>
                             <Link to="/perfil" className="itemNav">Dados Pessoais</Link>
                             <Link to="/pedidos" className="itemNav">Pedidos</Link>
@@ -98,57 +96,56 @@ const PerfilUsuario = () => {
                                 <p>{cliente.email}</p>
                             </div>
                         </div>
-                        <Button variante={"quinto"} texto={"Editar Dados Pessoais"} onClick={() => setModalAberto(true)}/>
-                        <Button variante={"quarto"} texto={"Excluir Conta"} onClick={() => setModalDelete(true)}/>
+                        <Button variante={"quinto"} texto={"Editar Dados Pessoais"} onClick={() => setModalAberto(true)} />
+                        <Button variante={"quarto"} texto={"Excluir Conta"} onClick={() => setModalDelete(true)} />
                     </div>
                 </div>
             </StyledPerfilUsuario>
             <Footer />
 
-            <Modal  open={modalAberto} fechar={() => setModalAberto(false)}>
+            <Modal open={modalAberto} fechar={() => setModalAberto(false)}>
                 <h1>Alteração dos Dados Pessoais</h1>
                 <label htmlFor="">Nome</label>
-                <Input 
-                type="text"
-                width='50%'
-                height='45px'
-                radius='8px'
-                padding='10px'
-                value={cliente.nome}
-                onChange={(event) => setCliente({...cliente, nome: event.target.value})}
-                  />
+                <Input
+                    type="text"
+                    width='50%'
+                    height='45px'
+                    radius='8px'
+                    padding='10px'
+                    value={cliente.nome}
+                    onChange={(event) => setCliente({ ...cliente, nome: event.target.value })}
+                />
                 <label htmlFor="">Sobrenome</label>
                 <Input
-                type="text"
-                width='50%'
-                height='45px'
-                radius='8px'
-                padding='10px'
-                value={cliente.sobrenome}
-                onChange={(event) => setCliente({...cliente, sobrenome: event.target.value})}
-                  />
+                    type="text"
+                    width='50%'
+                    height='45px'
+                    radius='8px'
+                    padding='10px'
+                    value={cliente.sobrenome}
+                    onChange={(event) => setCliente({ ...cliente, sobrenome: event.target.value })}
+                />
                 <label htmlFor="">Email</label>
                 <Input
-                type="text"
-                width='100%'
-                height='45px'
-                radius='8px'
-                padding='10px'
-                value={cliente.email}
-                onChange={(event) => setCliente({...cliente, email: event.target.value})}
-                  />
-                <Button variante={"primeiro"} texto={"Salvar"} onClick={() => atualizarDados()}/>
+                    type="text"
+                    width='100%'
+                    height='45px'
+                    radius='8px'
+                    padding='10px'
+                    value={cliente.email}
+                    onChange={(event) => setCliente({ ...cliente, email: event.target.value })}
+                />
+                <Button variante={"primeiro"} texto={"Salvar"} onClick={() => atualizarDados()} />
             </Modal>
-            <Modal  open={modalDelete} fechar={() => setModalDelete(false)}>
+            <Modal open={modalDelete} fechar={() => setModalDelete(false)}>
                 <h1>Tem certeza que deseja excluir sua conta?</h1>
                 <p>Essa opção não pode ser desfeita</p>
-                
-                <Button variante={"primeiro"} texto={"Excluir"} onClick={() => excluirConta()}/>
-                <Button variante={"terceiro"} texto={"Cancelar"} onClick={() => setModalDelete(false)}/>
+
+                <Button variante={"primeiro"} texto={"Excluir"} onClick={() => excluirConta()} />
+                <Button variante={"terceiro"} texto={"Cancelar"} onClick={() => setModalDelete(false)} />
             </Modal>
         </>
     );
 };
 
 export default PerfilUsuario;
-

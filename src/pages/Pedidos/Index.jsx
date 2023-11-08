@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import { StyledPedidos } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { LinkDaApi } from "../../service/api";
 
@@ -11,6 +11,7 @@ const Pedidos = () => {
     const idCliente = JSON.parse(localStorage.getItem('userId'))
     const urlApi = `${LinkDaApi}/clientes/${idCliente}/pedidos`;
     const [pedidos, setPedidos] = useState([])
+    const navigate = useNavigate(); 
 
     const getPedidos = async() => {
         try {
@@ -26,9 +27,9 @@ const Pedidos = () => {
         if (idCliente){
             getPedidos()
         } else {
-            window.location.href = "/login"
+            navigate('/login'); 
         }
-    }, [])
+    }, [navigate, idCliente])
 
     return (
         <>
@@ -77,4 +78,3 @@ const Pedidos = () => {
 };
 
 export default Pedidos;
-
