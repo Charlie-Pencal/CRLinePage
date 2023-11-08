@@ -4,8 +4,15 @@ import { Header } from "../../components/shared/Header/Index";
 import Footer from "../../components/shared/Footer/Index";
 import Button from "../../components/common/Button";
 import { Input } from '../../components/common/Input/Style'
+import { toast } from "react-toastify";
 
 const Contato = () => {
+    const handleSubmit = () => {
+      toast.success("Enviado!");
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    }
     return (
         <>
             <Header />
@@ -27,7 +34,7 @@ const Contato = () => {
                         <h3>Horário de Atendimento</h3>
                         <p>Segunda-Sexta: 9:00 - 22:00</p>
                     </div>
-                    <form className="containerFormulario">
+                    <div className="containerFormulario" >
                         <label className="descricaoLabel">Seu Nome</label>
                         <Input
                             type="text"
@@ -50,8 +57,8 @@ const Contato = () => {
                             rows="10"
                             placeholder="Olá, gostaria de ..."
                         ></textarea>
-                        <Button variante={"quarto"} texto={"Enviar"} />
-                    </form>
+                        <Button variante={"quarto"} texto={"Enviar"} onClick={handleSubmit}/>
+                    </div>
                 </div>
             </StyledContato>
             <Footer />
