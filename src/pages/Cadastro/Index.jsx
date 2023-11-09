@@ -101,10 +101,11 @@ const Cadastro = () => {
                       height='45px'
                       radius='8px'
                       padding='10px'
-                      {...register("senha", { required: true })}
+                      {...register("senha", { required: true, validate: (value) => validator.isLength(value , {min:8, max: 99}) })}
                       className={errors?.senha && "erro"}
                     />
                     {errors?.senha?.type === "required" && <span className="erro">Senha é um campo obrigatório</span>}
+                    {errors?.senha?.type === "validate" && <span className="erro">Senha precisa ter mais de 8 digitos</span>}
                   </div>
                   <div className="labelSobreInput">
                     <label htmlFor="confirmarSenha">Confirmar Senha</label>
